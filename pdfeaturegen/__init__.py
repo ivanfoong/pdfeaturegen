@@ -1,6 +1,12 @@
 import pandas as pd
 
 def generate_timestamp_features(timestamp_series):
+    """
+    Returns a Pandas DataFrame with new features generated from a given timestamp series
+
+    :param timestamp_series: A pandas.Series with the timestamps
+    :rtype pandas.DataFrame:
+    """
     df = pd.DataFrame()
     df['time_year'] = timestamp_series.dt.year.astype('int16')
     df['time_month'] = timestamp_series.dt.month.astype('int16')
@@ -22,6 +28,13 @@ def generate_timestamp_features(timestamp_series):
     return df
 
 def timestamp_feature_engineering_with_df(df, timestamp_series):
+    """
+    Returns a new Pandas DataFrame concatenated with the new features generated from the given timestamp series
+
+    :param df: A pandas.DataFrame with the features
+    :param timestamp_series: A pandas.Series with the timestamps
+    :rtype pandas.DataFrame:
+    """
     timestamp_features_df = generate_timestamp_features(df.time)
     df = pd.concat([df, timestamp_features_df], axis=1)
     return df
