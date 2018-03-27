@@ -1,6 +1,6 @@
 from setuptools import setup
 setup(name='pdfeaturegen',
-      version='0.0.1',
+      version='0.0.2',
       description='Supporting functions to generate features in Pandas Dataframe for Machine Learning',
       url='https://github.com/ivanfoong/pdfeaturegen',
       author='Ivan Foong',
